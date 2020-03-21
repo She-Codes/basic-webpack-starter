@@ -6,6 +6,7 @@ const {
 } = require('clean-webpack-plugin');
 
 module.exports = {
+  entry: './src/index.js',
   mode: 'development',
   devtool: 'inline-source-map',
   module: {
@@ -37,7 +38,10 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      filename: './index.html',
+      template: './src/index.html'
+    }),
     new CleanWebpackPlugin()
   ]
 };
